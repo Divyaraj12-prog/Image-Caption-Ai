@@ -25,7 +25,11 @@ async function registerController(req, res) {
         id: user._id
     }, process.env.JWT_SECRET)
 
-    res.cookie('token', token);
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,         
+        sameSite: "none",     
+    });
 
     res.status(201).json({
         message: "User created Succesfully",
@@ -34,36 +38,40 @@ async function registerController(req, res) {
 }
 
 async function loginController(req, res) {
-   const {username,password} = req.body;
+    const { username, password } = req.body;
 
-   const user = await UserModel.findOne({
-    username
-   }) 
-
-   if(!user){
-    return res.status(401).json({
-        message:"User Account Not Found"
+    const user = await UserModel.findOne({
+        username
     })
-   }
 
-   const checkpass = await bcrypt.compare(password,user.password);
+    if (!user) {
+        return res.status(401).json({
+            message: "User Account Not Found"
+        })
+    }
 
-   if(!checkpass){
-    return res.status(401).json({
-        message:"Invalid Password, try again"
+    const checkpass = await bcrypt.compare(password, user.password);
+
+    if (!checkpass) {
+        return res.status(401).json({
+            message: "Invalid Password, try again"
+        })
+    }
+
+    const token = jwt.sign({
+        id: user._id
+    }, process.env.JWT_SECRET)
+
+      res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,         
+        sameSite: "none",     
+    });
+
+    res.status(201).json({
+        message: "LoggedIn Succesflly!",
+        user
     })
-   }
-
-   const token = jwt.sign({
-    id:user._id
-   },process.env.JWT_SECRET)
-
-   res.cookie('token',token);
-
-   res.status(201).json({
-    message:"LoggedIn Succesflly!",
-    user
-   })
 }
 
 module.exports = {
