@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 const allowedOrigins = [
-  'https://image-caption-ai-three.vercel.app/',
+  'https://image-caption-ai-three.vercel.app',
 ];
 
 app.use(cors({
