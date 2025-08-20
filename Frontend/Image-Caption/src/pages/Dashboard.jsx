@@ -39,7 +39,7 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Top bar */}
+      
       <div className="px-6 py-4 bg-white shadow-sm">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="text-xl font-bold text-purple-600">CaptionAI</div>

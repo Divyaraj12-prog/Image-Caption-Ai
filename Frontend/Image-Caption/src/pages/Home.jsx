@@ -1,10 +1,10 @@
-// src/pages/Home.jsx
+
 import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      {/* Navbar */}
+      
       <header className="flex justify-between gap-5 items-center px-6 py-4 shadow-sm bg-white">
         <div className="flex items-center gap-2 text-xl font-bold text-purple-600">
           <span className="material-icons">CaptionAI.</span>
@@ -19,7 +19,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero */}
+      
       <main className="flex-1 flex flex-col justify-center items-center text-center px-6">
         <span className="px-3 py-1 mt-4 rounded-full bg-purple-100 text-purple-600 text-sm mb-6">
           ✨ AI-Powered Captions
@@ -48,7 +48,7 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Features */}
+      
       <section className="grid md:grid-cols-3 gap-6 px-6 py-12 max-w-6xl mx-auto">
         <div className="p-6 bg-white rounded-2xl shadow hover:shadow-xl/30  transition">
           <div className="text-purple-600 text-3xl mb-4">⚡</div>

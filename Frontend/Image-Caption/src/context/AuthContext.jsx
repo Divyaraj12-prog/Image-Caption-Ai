@@ -7,7 +7,6 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser]   = useState(null);
   const [ready, setReady] = useState(false);
 
-  // Persist login on refresh
   useEffect(() => {
     api.get("/api/auth/me")
       .then(res => setUser(res.data?.user || null))
@@ -28,7 +27,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    // if you add a /api/auth/logout that clears cookie, call it here
+   
     setUser(null);
   };
 
