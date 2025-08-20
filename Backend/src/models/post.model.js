@@ -1,4 +1,4 @@
-const { caption } = require('framer-motion/client');
+
 const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema({
