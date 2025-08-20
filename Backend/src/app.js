@@ -20,7 +20,7 @@ app.use(cors({
       callback(new Error('Not allowed by CORS'));
     }
   },
- Credentials: true,
+ credentials:true,
 }));
 
 app.use('/api/auth',authRoutes);
